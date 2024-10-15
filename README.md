@@ -23,6 +23,7 @@ def create_playfair_matrix(key):
     # Membuat matriks 5x5
     return [matrix[i:i+5] for i in range(0, len(matrix), 5)]
 
+
 # Fungsi untuk mempersiapkan plaintext
 def prepare_text(text):
     # Hilangkan spasi, atur huruf yang sama, dan buat pasangan
@@ -31,8 +32,8 @@ def prepare_text(text):
     i = 0
     while i < len(text):
         a = text[i]
-        if i+1 < len(text):
-            b = text[i+1]
+        if i + 1 < len(text):
+            b = text[i + 1]
             if a == b:
                 pairs.append(a + 'X')
                 i += 1
@@ -44,6 +45,7 @@ def prepare_text(text):
             i += 1
     return pairs
 
+
 # Fungsi untuk menemukan posisi huruf di dalam matriks
 def find_position(matrix, char):
     for row in range(5):
@@ -51,6 +53,7 @@ def find_position(matrix, char):
             if matrix[row][col] == char:
                 return row, col
     return None
+
 
 # Fungsi untuk enkripsi pasangan huruf
 def encrypt_pair(matrix, pair):
@@ -64,6 +67,7 @@ def encrypt_pair(matrix, pair):
     else:
         return matrix[row1][col2] + matrix[row2][col1]
 
+
 # Fungsi utama untuk enkripsi Playfair Cipher
 def encrypt_playfair(plaintext, key):
     matrix = create_playfair_matrix(key)
@@ -73,20 +77,34 @@ def encrypt_playfair(plaintext, key):
         ciphertext += encrypt_pair(matrix, pair)
     return ciphertext
 
+
 # Input kunci dan plaintext
 key = "TEKNIK INFORMATIKA"
 plaintext_1 = "GOOD BROOM SWEEP CLEAN"
 plaintext_2 = "REDWOOD NATIONAL STATE PARK"
 plaintext_3 = "JUNK FOOD AND HEALTH PROBLEMS"
 
+# Enkripsi untuk masing-masing plaintext
+encrypted_1 = encrypt_playfair(plaintext_1, key)
+encrypted_2 = encrypt_playfair(plaintext_2, key)
+encrypted_3 = encrypt_playfair(plaintext_3, key)
+
 # Gabungkan semua plaintext
 combined_plaintext = plaintext_1 + " " + plaintext_2 + " " + plaintext_3
-
-# Enkripsi untuk plaintext gabungan
 encrypted_combined_text = encrypt_playfair(combined_plaintext, key)
 
-# Cetak hasil enkripsi
-print("Ciphertext:", encrypted_combined_text)
+# Cetak hasil enkripsi masing-masing
+print("Plaintext 1:", plaintext_1)
+print("Encrypted 1:", encrypted_1)
+print("Plaintext 2:", plaintext_2)
+print("Encrypted 2:", encrypted_2)
+print("Plaintext 3:", plaintext_3)
+print("Encrypted 3:", encrypted_3)
+
+# Cetak hasil enkripsi gabungan
+print("Combined Plaintext:", combined_plaintext)
+print("Encrypted Combined:", encrypted_combined_text)
+
 ```
 
 ### Penjelasan Kode:
