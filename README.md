@@ -99,4 +99,4 @@ print("Ciphertext:", encrypted_combined_text)
 ### Hasil Enkripsi:
 Setelah menjalankan kode, Anda akan mendapatkan ciphertext dari gabungan semua plaintext yang dienkripsi.
 
-![image](https://github.com/user-attachments/assets/3c98bca6-1b7f-4f54-b43d-6b4a8702c5e9)
+![image](https://github.com/user-attachments/assets/84a398e1-089c-4a3e-87ca-dd08f7b5b788)
